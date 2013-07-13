@@ -5,12 +5,14 @@ private var gravitation_point : Vector3;
 
 function Start () 
 {
+	Hill = GameObject.FindGameObjectWithTag("Hill").transform;
 	gravitation_point = Hill.position;
 	gravitation_point.x += transform.position.x;
 }
 
 function Update () 
 {
+
 	//have the enemy move in it's current forward direction
 	transform.rigidbody.AddForce(transform.forward);
 	
