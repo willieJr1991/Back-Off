@@ -27,11 +27,12 @@ function Update () {
 		
 		ray = Camera.main.ScreenPointToRay(Input.mousePosition);    
 		if ( Physics.Raycast (ray, hit) ) {			
-			ball = Instantiate (playerBall, Vector3(0,-2,-10), transform.rotation);	
+			ball = Instantiate (playerBall, Vector3(touchDownPoint.x,-2,-10), transform.rotation);	
 			var direction : Vector3 = hit.point - touchDownPoint;
 			direction.z = direction.y;
-			direction.y = 0;
-			direction *= 40;	
+			direction *= 100;	
+			direction.y = 100;
+
 			ball.transform.rigidbody.AddForce(direction);
 		}
 		
